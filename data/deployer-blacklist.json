@@ -1,0 +1,85 @@
+{
+  "note": "Curated list of BSC deployers behind proven template farms: many collections, one template, no real project behind them. owner() is a PROXY for a fast pre-mint check, not proof of the creation transaction. Only deployers verified by explorer Creator records or repeated owner() + code_len matches are listed. Contributions welcome with on-chain evidence (owner, code_len, at least 2 collection contracts).",
+  "updated": "2026-11-12",
+  "skip": [
+    {
+      "deployer": "0x11038f4aA771d9D48B8ac7a184e37a8E5324A9dd",
+      "collections": 36,
+      "note": "36 collections, one template (runtime bytecode ~99.5% identical, code_len 7,803). Families include Kaiju, Peepers, Sprouts, Yokai and later siblings. First four Creator-verified on BscScan; the rest matched by owner() + code_len.",
+      "source": "BscScan Creator record"
+    },
+    {
+      "deployer": "0x53043412c4F2436f68e56bB9638EbEBB099Fb3C1",
+      "collections": 21,
+      "note": "21 collections, kawaii-cup family. Matched by owner() across multiple collections.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0xa054275580c6D1C9077543907ac5798f2494eCce",
+      "collections": 14,
+      "note": "14 collections. Matched by owner() across multiple collections.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0x190f1f0caff480e207f42586f9fbe4c691a27066",
+      "collections": 19,
+      "note": "Wave A: 19 collections, one template (code_len ~10,000), all reading the Agent ID registry, no website or socials.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0x6f244724f61d8c7fc9af40dd37ff7c82bf2b8f5d",
+      "collections": 7,
+      "note": "Wave B: 7 collections, same template as wave A (code_len ~10,000), no website or socials.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0x13333df46ab3e95f4166370d571e7b73aad06370",
+      "collections": 2,
+      "note": "Hoki series: 2 collections, one template (code_len 7,719 vs 7,715) sharing a factory owner.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0x127679816f1ad3a3130930d22e25922d01df8e90",
+      "collections": 16,
+      "note": "Wrenfield wave: 16 of 30 contracts under two owners, identical code_len 7,407 and a shared metadata host, no website or socials.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0x651aeb2dbaed8ad49e28b76a3b5b94bec79bf9f9",
+      "collections": 14,
+      "note": "Wrenfield wave: 14 of 30 contracts under two owners, identical code_len 7,407 and a shared metadata host, no website or socials.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0x1be8268eeb0acce3f22ccf0f417fd814c2272e5a",
+      "collections": 50,
+      "note": "Old wave family: 50 collections under one owner.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0x3fbe2b54baf80d33e2ef6e46cb972959536eca17",
+      "collections": 117,
+      "note": "Old wave family, the largest recorded: 117 collections under one owner (code_len 7,398 / 7,803).",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0x08df7970bb2c632908e3df036d0439420d9ce858",
+      "collections": 47,
+      "note": "Old wave family: 47 collections under one owner.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    },
+    {
+      "deployer": "0x62afb425652dca4070b2dc190c9fb50bedf0c0d1",
+      "collections": 5,
+      "note": "5 collections sharing one owner, identical code_len 13,720 and identical max/free supply, under different project names with no shared website or socials.",
+      "source": "owner() + code_len, verified on at least two RPC endpoints"
+    }
+  ],
+  "watch": [
+    {
+      "owner": "0xf5c6ee4d1b236ccbbc1f950255ea2deb0a09d77a",
+      "collections": 2,
+      "note": "Moripals + Abyssora: one developer, different templates (bytecode ~7.8% identical). Watch, not a skip."
+    }
+  ]
+}

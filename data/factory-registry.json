@@ -1,0 +1,180 @@
+{
+  "note": "Factory owners seen by check_owner.py. A factory owner already recorded with a DIFFERENT contract means one template: a second collection from the same factory is SKIP-FACTORY-REPEAT. The first appearance is recorded automatically; blacklisting a factory owner itself is a human decision.",
+  "updated": "2026-11-12",
+  "factories": {
+    "0x13333df46ab3e95f4166370d571e7b73aad06370": {
+      "collections": [
+        {
+          "name": "HokiFrog",
+          "contract": "0xeb3ede3893ca798f30648194ecc03119a7071b40",
+          "code_len": 7719,
+          "first_seen": "2026-11-08"
+        },
+        {
+          "name": "HokiCat",
+          "contract": "0xdb51dcc2d8caf9942d9a975a2e68e023ab5e1fca",
+          "code_len": 7715,
+          "first_seen": "2026-11-08"
+        }
+      ],
+      "skip_listed": true,
+      "note": "Hoki series (HokiFrog + HokiCat). Also on the deployer blacklist."
+    },
+    "0xa9c76feecda249bbe14d3a330a3739821f69d910": {
+      "collections": [
+        {
+          "name": "dotBots",
+          "contract": "0x4123f0f5ca048780c0c91abc0c7ac12c77a0bf69",
+          "code_len": 20698,
+          "first_seen": "2026-11-07"
+        }
+      ],
+      "skip_listed": false,
+      "note": "One collection so far (dotBots). A second collection from this factory -> SKIP-FACTORY-REPEAT."
+    },
+    "0x6885ca49cf928f68e0adffdb365df76923367a88": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0xd612ded8f2b4818c0a9d2465f06ebf1b745f0e17",
+          "code_len": 6568,
+          "first_seen": "2026-11-08"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0xce80ee7b7ad7954bb886ff120f8477252a1a23b5": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0xd7eb297918fb9e8045266a9771129375747c7faa",
+          "code_len": 11047,
+          "first_seen": "2026-11-09"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0x1ac8881cf5ef9d3df80b5a5834519b67b8ea0ced": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0xec4f41F60EC868742DE65CAbE6bF9bEA8607b599",
+          "code_len": 16837,
+          "first_seen": "2026-11-09"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0xaaa209dc5762002f79edcd51424a3389cac6fadb": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0x67fdd6c1bf9a4cdb969ce483f71aacb1d8302efd",
+          "code_len": 3485,
+          "first_seen": "2026-11-09"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0xa24b89dab675c38547431bfacb53e60b92c64ec3": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0x13a1ebc988977f8af0c2983027ff72f4d81bef00",
+          "code_len": 7575,
+          "first_seen": "2026-11-09"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0x78cfbf4df66e798fc7402f18dcd9dae5160bca34": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0x3048e07c057ef694d4e431154dafad473d1aa18b",
+          "code_len": 170,
+          "first_seen": "2026-11-10"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0xb9d326a805c2b2ec5d129afef1990e71b213b938": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0xa37b3ff7a1cabf77256a4b246eba1652011e4569",
+          "code_len": 14450,
+          "first_seen": "2026-11-10"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0x46b02377e6f12555b62de3f4d2b14ceda1d1549d": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0xe9e1fad4b2d43a7620c1c2ca588f174710000000",
+          "code_len": 20612,
+          "first_seen": "2026-11-10"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0xeb436309d24e4fb3d80fde103eeb765c443f6bbe": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0x4a318eb842c8c95876e895258bc70d0bee767def",
+          "code_len": 6570,
+          "first_seen": "2026-11-11"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0x9f1e4d411477778f700868b8f8a2180404636fd4": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0xc96395bd3c1ab2f3da444638c023413cef3e63ef",
+          "code_len": 19993,
+          "first_seen": "2026-11-11"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0x279d020f780399ebe36bcdfd9907ffbbbd1d1998": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0x00eb6a652d87a1ec56f9c1ce003326e4dbd0f6df",
+          "code_len": 9654,
+          "first_seen": "2026-11-11"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    },
+    "0xec058682e36d72e1f8bbacdda301761578f33f4a": {
+      "collections": [
+        {
+          "name": "",
+          "contract": "0xb08c73cead7395c40d1e73f6095872ef44e5786a",
+          "code_len": 8892,
+          "first_seen": "2026-11-12"
+        }
+      ],
+      "skip_listed": false,
+      "note": "Recorded automatically by check_owner.py."
+    }
+  }
+}

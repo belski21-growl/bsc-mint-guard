@@ -1,0 +1,527 @@
+{
+  "chain": 56,
+  "version": "1.0",
+  "updated": "2026-11-12",
+  "note": "Selector 'proven' = seen in the dispatcher, a simulation, or a successful mint. 'computed' = derived via keccak from a function name proven to exist (from dissection or a successful mint), never guessed. Contract addresses are listed only when recorded on-chain; an empty field means no address was recorded - never invent one. A shared selector (e.g. mint(uint256)) identifies a FAMILY, never a single winner: always run distinguishing_checks (read verify() first) before grinding any proof-of-work.",
+  "templates": [
+    {
+      "id": "nonames_v4",
+      "family": "pow_mint",
+      "status": "done",
+      "confidence": "proven",
+      "required_selectors": [
+        "0xa0712d68"
+      ],
+      "selectors": {
+        "mint(uint256)": {
+          "provenance": "proven",
+          "selector": "0xa0712d68"
+        }
+      },
+      "mint_route": {
+        "args": [
+          "nonce"
+        ],
+        "function": "mint(uint256)",
+        "selector": "0xa0712d68",
+        "value": 0
+      },
+      "distinguishing_checks": [
+        "verify() uses sha256, NOT keccak \u2014 read verify() source before grinding",
+        "challenge changes per wallet/state; re-read before each grind",
+        "same mint selector as chip404/fruityfarm/vaultcrack \u2014 do NOT identify by selector alone"
+      ],
+      "quota_checks": [
+        "balanceOf(wallet) \u2014 max 2/wallet",
+        "totalMinted vs maxSupply"
+      ],
+      "proven_contracts": [
+        "0x6a41fc45ed62658af72ee334fa523013ad34ca85"
+      ]
+    },
+    {
+      "id": "chip404",
+      "family": "pow_mint",
+      "status": "closed",
+      "confidence": "proven",
+      "required_selectors": [
+        "0xa0712d68"
+      ],
+      "selectors": {
+        "mint(uint256)": {
+          "provenance": "proven",
+          "selector": "0xa0712d68"
+        }
+      },
+      "mint_route": {
+        "args": [
+          "nonce"
+        ],
+        "function": "mint(uint256)",
+        "selector": "0xa0712d68",
+        "value": 0
+      },
+      "distinguishing_checks": [
+        "84-byte preimage WITH salt \u2014 the 56-byte scheme (no salt) is WRONG, proven by two real mainnet mints at weight 40",
+        "Ladder: 150 pieces per rung; target changes when the rung flips"
+      ],
+      "quota_checks": [
+        "balanceOf(wallet)",
+        "totalMinted//150 + 32 = current weight rung"
+      ],
+      "proven_contracts": [
+        "0xAB6b18C626daaDd1ff7Cc45F402141153a5a9759"
+      ]
+    },
+    {
+      "id": "fruityfarm",
+      "family": "pow_mint",
+      "status": "pending",
+      "confidence": "proven",
+      "required_selectors": [
+        "0xa0712d68"
+      ],
+      "selectors": {
+        "mint(uint256)": {
+          "provenance": "proven",
+          "selector": "0xa0712d68"
+        }
+      },
+      "mint_route": {
+        "args": [
+          "nonce"
+        ],
+        "function": "mint(uint256)",
+        "selector": "0xa0712d68",
+        "value": 0
+      },
+      "distinguishing_checks": [
+        "Challenge-only preimage \u2014 no wallet bytes (unlike NoNames/VaultCrack)",
+        "nextMint = seed number; only seed #1 is free"
+      ],
+      "quota_checks": [
+        "balanceOf(wallet) \u2014 seeds #1 free, #2-#5 PAID (not authorized)",
+        "mintOpen",
+        "totalMinted vs 8000"
+      ],
+      "proven_contracts": [
+        "0x35dFE75eD6de1DB74f0D35B7773d1d0A7e5726F5"
+      ]
+    },
+    {
+      "id": "vaultcrack_genesis",
+      "family": "pow_mint",
+      "status": "done",
+      "confidence": "proven",
+      "required_selectors": [
+        "0xa0712d68"
+      ],
+      "selectors": {
+        "mint(uint256)": {
+          "provenance": "proven",
+          "selector": "0xa0712d68"
+        }
+      },
+      "mint_route": {
+        "args": [
+          "nonce"
+        ],
+        "function": "mint(uint256)",
+        "selector": "0xa0712d68",
+        "value": 0
+      },
+      "distinguishing_checks": [
+        "52-byte preimage, no challenge, no salt (differs from NoNames sha256+challenge and Chip404 salt)",
+        "Gate includes registry balanceOf > 0, not just the proof"
+      ],
+      "quota_checks": [
+        "registry balanceOf(caller) > 0 (gate)",
+        "hasMinted(wallet) == 0 \u2014 1/wallet",
+        "publicMinted vs PUBLIC_SUPPLY 5970 / TOTAL 6000"
+      ],
+      "proven_contracts": [
+        "0xB44f436cD03E4fdcE596217d43F5e1F8Ec669e43"
+      ]
+    },
+    {
+      "id": "harvestland",
+      "family": "phased_free_mint",
+      "status": "active",
+      "confidence": "proven",
+      "required_selectors": [
+        "0x5b70ea9f"
+      ],
+      "selectors": {
+        "currentPhase()": {
+          "provenance": "computed",
+          "selector": "0x055ad42e"
+        },
+        "freeClaimed(address)": {
+          "provenance": "computed",
+          "selector": "0x61c0b6a0"
+        },
+        "freeMint()": {
+          "provenance": "proven",
+          "selector": "0x5b70ea9f"
+        },
+        "freeMinted()": {
+          "provenance": "computed",
+          "selector": "0xd10a1a2b"
+        },
+        "freeOpen()": {
+          "provenance": "computed",
+          "selector": "0x71f195b9"
+        },
+        "phasePauseEnd()": {
+          "provenance": "computed",
+          "selector": "0x0fec01a3"
+        }
+      },
+      "mint_route": {
+        "args": [],
+        "function": "freeMint()",
+        "selector": "0x5b70ea9f",
+        "value": 0
+      },
+      "distinguishing_checks": [
+        "Phases fill fast when late (phase 7 filled in ~10 min) \u2014 watch interval must be minutes, not hours"
+      ],
+      "quota_checks": [
+        "freeOpen()",
+        "currentPhase()",
+        "freeMinted()",
+        "freeClaimed(wallet) == false",
+        "balanceOf(wallet) == 0",
+        "remaining slots = currentPhase*500 - freeMinted"
+      ],
+      "proven_contracts": [
+        "0xacf150d9eC909E3d339Bf4c6D090b18495674E66"
+      ]
+    },
+    {
+      "id": "smartpudgy",
+      "family": "custom_free_mint",
+      "status": "done",
+      "confidence": "proven",
+      "required_selectors": [
+        "0x8ab53447"
+      ],
+      "selectors": {
+        "mintFree()": {
+          "provenance": "computed",
+          "selector": "0x8ab53447"
+        }
+      },
+      "mint_route": {
+        "args": [],
+        "function": "mintFree()",
+        "selector": "0x8ab53447",
+        "value": 0
+      },
+      "distinguishing_checks": [
+        "Contract UNVERIFIED; NO standard mint selectors in dispatcher \u2014 that is why standard routes reverted empty",
+        "Real function found via 4byte lookup on dispatcher selectors"
+      ],
+      "quota_checks": [
+        "balanceOf(wallet) before/after",
+        "no standard selectors in dispatcher (verified by bytecode read)"
+      ],
+      "proven_contracts": []
+    },
+    {
+      "id": "nocturn",
+      "family": "custom_free_mint",
+      "status": "done",
+      "confidence": "proven",
+      "required_selectors": [
+        "0x69eadd51"
+      ],
+      "selectors": {
+        "mintPhaseOne(uint256)": {
+          "provenance": "computed",
+          "selector": "0x29d3fa2b"
+        },
+        "mintPhaseTwo(uint256)": {
+          "provenance": "computed",
+          "selector": "0x69eadd51"
+        }
+      },
+      "mint_route": {
+        "args": [
+          "phase/token arg per dissection"
+        ],
+        "function": "mintPhaseTwo(uint256)",
+        "selector": "0x69eadd51",
+        "value": 0
+      },
+      "distinguishing_checks": [
+        "Contract UNVERIFIED; no standard selectors in dispatcher",
+        "Phase 1 sold-out revert string does NOT close phase 2 \u2014 verify each phase separately",
+        "On-chain proof: last 6 mints by others all used mintPhaseTwo value 0"
+      ],
+      "quota_checks": [
+        "balanceOf(wallet)",
+        "phase 1 sold out permanently (cap 444 vs total 1455) \u2014 irrelevant if phase 2 is free"
+      ],
+      "proven_contracts": []
+    },
+    {
+      "id": "torchline_negative",
+      "family": "negative_proof",
+      "status": "negative",
+      "confidence": "proven",
+      "required_selectors": [
+        "0xd7d637f6"
+      ],
+      "selectors": {
+        "StartersGone()": {
+          "provenance": "computed",
+          "selector": "0xd7d637f6"
+        }
+      },
+      "mint_route": null,
+      "distinguishing_checks": [
+        "Custom error identified by computing keccak('StartersGone()') and matching the revert selector",
+        "Verified source (Sourcify) confirms the gate; all free routes revert the SAME error"
+      ],
+      "quota_checks": [
+        "startersLeft == 0 with STARTER_SEATS 150/150 and startersIn only increasing (no reset)"
+      ],
+      "proven_contracts": []
+    },
+    {
+      "id": "agentid_share",
+      "family": "agentid_share_mint",
+      "status": "pattern",
+      "confidence": "pattern",
+      "required_selectors": [],
+      "selectors": {},
+      "mint_route": {
+        "args": [
+          "Agent ID identity"
+        ],
+        "function": "varies per project (share mint gated by Agent ID registry)",
+        "selector": null,
+        "value": "0 for free share; paid shares vary and are NEVER auto-bought"
+      },
+      "distinguishing_checks": [
+        "Find the registry contract first, then the share mint function"
+      ],
+      "quota_checks": [
+        "balanceOf(wallet) / shares already held",
+        "free vs paid share count"
+      ],
+      "proven_contracts": []
+    },
+    {
+      "id": "hive_pollen",
+      "family": "pollen_join_claim",
+      "status": "active",
+      "confidence": "proven",
+      "required_selectors": [
+        "0x5312df0f"
+      ],
+      "selectors": {
+        "joinPollen()": {
+          "provenance": "computed",
+          "selector": "0x5312df0f"
+        }
+      },
+      "mint_route": {
+        "args": [],
+        "function": "joinPollen()",
+        "selector": "0x5312df0f",
+        "value": 0
+      },
+      "distinguishing_checks": [
+        "Pollen pool (gas only, once per agent) is SEPARATE from paid shares (0.001 BNB/share = 50,000 HIVE) \u2014 never buy shares on a pollen order",
+        "Pollen slice is NOT in the wallet until launch claim \u2014 balanceOf 0 does not mean 'not joined'"
+      ],
+      "quota_checks": [
+        "AlreadyJoined() revert = already joined (verified on-chain 1 Nov 2026)",
+        "pollenAgents count (~7569 at last check)",
+        "claim open/closed + claimable amount + verified claim value before ANY claim"
+      ],
+      "proven_contracts": [
+        "0x3E9B4F58e2bC9b064F002cF89531e12FC5CfA00f"
+      ]
+    },
+    {
+      "id": "seeds_care",
+      "family": "game_care",
+      "status": "active",
+      "confidence": "proven",
+      "required_selectors": [
+        "0xfce52765"
+      ],
+      "selectors": {
+        "feed(uint256)": {
+          "provenance": "computed",
+          "selector": "0xf59dfdfb"
+        },
+        "water(uint256[])": {
+          "provenance": "proven",
+          "selector": "0xfce52765"
+        }
+      },
+      "mint_route": null,
+      "distinguishing_checks": [
+        "Water is on the NFT contract, feed is on SeedsCare (0x5Bf6C48d396702cCaA0db98501436133A0bE7E6b), state via Lens (0xA97Dd8C78EBe6858fbBb043a45f4dE1350EB9A7E) \u2014 three contracts, do not mix them"
+      ],
+      "quota_checks": [
+        "Lens nextAction(wallet, tokenId): action 2 = WATER, value = fee",
+        "water fee auto-pay cap 0.00002 BNB \u2014 above cap = ASK FIRST, never auto-pay"
+      ],
+      "proven_contracts": [
+        "0x8d7E03C2dA2b532D4C59b46059443145147996D6"
+      ]
+    },
+    {
+      "id": "erc721_standard_free",
+      "family": "standard_free_mint",
+      "status": "pattern",
+      "confidence": "pattern",
+      "required_selectors": [],
+      "selectors": {
+        "claim()": {
+          "provenance": "computed",
+          "selector": "0x4e71d92d"
+        },
+        "claimFree()": {
+          "provenance": "computed",
+          "selector": "0xf366afc9"
+        },
+        "freeMint()": {
+          "provenance": "proven",
+          "selector": "0x5b70ea9f"
+        },
+        "mint(address,uint256)": {
+          "provenance": "proven",
+          "selector": "0x40c10f19"
+        },
+        "mint(uint256)": {
+          "provenance": "proven",
+          "selector": "0xa0712d68"
+        }
+      },
+      "mint_route": {
+        "args": [
+          "per function"
+        ],
+        "selector": null,
+        "value": 0
+      },
+      "distinguishing_checks": [],
+      "quota_checks": [
+        "totalMinted/maxSupply + depletion pace FIRST",
+        "balanceOf(wallet) + per-wallet cap",
+        "mintOpen / sale state flags"
+      ],
+      "proven_contracts": []
+    },
+    {
+      "id": "onimaru_agentid_dualuint",
+      "family": "agentid_share",
+      "status": "active",
+      "confidence": "proven",
+      "required_selectors": [
+        "0x1b2ef1ca",
+        "0x32cb6b0c",
+        "0x4dbd691f",
+        "0x453c2310",
+        "0xa035b1fe",
+        "0xa2309ff8",
+        "0xd10a1a2b",
+        "0xd80528ae",
+        "0x7b103999"
+      ],
+      "selectors": {
+        "mint(uint256,uint256)": {
+          "selector": "0x1b2ef1ca",
+          "provenance": "proven"
+        }
+      },
+      "mint_route": {
+        "function": "mint(uint256,uint256)",
+        "selector": "0x1b2ef1ca",
+        "args": [
+          1,
+          0
+        ],
+        "value": 0
+      },
+      "distinguishing_checks": [
+        "No totalSupply() in dispatcher (reverts) \u2014 use totalMinted()/stats() instead",
+        "Address-taking views (balanceOf/isAgent/freeClaimed/mintedBy/walletInfo/quote/handleOf) revert EMPTY for every wallet \u2014 dead views, ignore them",
+        "mint(uint256,uint256) free route is (1,0) value 0; successful minter calldata confirmed on-chain",
+        "FREE_CAP 3000, maxPerWallet 10, price 0,0005 BNB, registry = official BSC Agent Identity"
+      ],
+      "quota_checks": [
+        "totalMinted() vs FREE_CAP 3000 (totalSupply()/balanceOf() revert \u2014 jangan dipakai)",
+        "maxPerWallet 10",
+        "balanceOf via Transfer log, bukan view"
+      ],
+      "proven_contracts": []
+    },
+    {
+      "id": "erc721_noarg_mint_paid",
+      "family": "erc721_standard_paid",
+      "status": "active",
+      "confidence": "proven",
+      "required_selectors": [
+        "0x1249c58b",
+        "0x6817c76c",
+        "0x32cb6b0c"
+      ],
+      "selectors": {
+        "mint()": {
+          "selector": "0x1249c58b",
+          "provenance": "proven"
+        },
+        "mintPrice()": {
+          "selector": "0x6817c76c",
+          "provenance": "proven"
+        },
+        "MAX_SUPPLY()": {
+          "selector": "0x32cb6b0c",
+          "provenance": "proven"
+        },
+        "MAX_PER_WALLET()": {
+          "selector": "0x0f2cdd6c",
+          "provenance": "proven"
+        },
+        "totalSupply()": {
+          "selector": "0x18160ddd",
+          "provenance": "proven"
+        },
+        "name()": {
+          "selector": "0x06fdde03",
+          "provenance": "proven"
+        },
+        "symbol()": {
+          "selector": "0x95d89b41",
+          "provenance": "proven"
+        }
+      },
+      "mint_route": {
+        "function": "mint()",
+        "selector": "0x1249c58b",
+        "value": "mintPrice() (paid, NOT free)",
+        "args": []
+      },
+      "distinguishing_checks": [
+        "mint() no-arg does NOT mean free \u2014 always read mintPrice() first",
+        "totalSupply()==MAX_SUPPLY() means sold out even if a page claims remaining quota"
+      ],
+      "quota_checks": [
+        "totalSupply() vs MAX_SUPPLY()",
+        "mintPrice()",
+        "MAX_PER_WALLET()",
+        "balanceOf(agent)"
+      ],
+      "proven_contracts": [
+        "0x70385fa94577cb845983d9b6752f2dde2486c837"
+      ]
+    }
+  ]
+}

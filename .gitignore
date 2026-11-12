@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+check-owner-last.json
+.venv/
+venv/
+.DS_Store

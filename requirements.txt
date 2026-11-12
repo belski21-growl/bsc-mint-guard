@@ -1,0 +1,7 @@
+# Core: exact Keccak-256 for selectors and EIP-55 checksums.
+# (hashlib.sha3_256 is NIST SHA3, NOT Keccak - it gives wrong results.)
+pycryptodome>=3.18
+
+# Only needed for guard/fetch_image.py
+Pillow>=10.0
+cairosvg>=2.7
